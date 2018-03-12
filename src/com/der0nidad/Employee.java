@@ -1,6 +1,7 @@
 package com.der0nidad;
 
-public class Employee {
+
+public class Employee implements Comparable<Employee>{
     private String firstName;
     private String lastName;
     private String position;
@@ -49,6 +50,19 @@ public class Employee {
 
     @Override
     public String toString() {
-        return (this.position + " " + this.getFirstName() + " " + this.getLastName() + " with salary " + this.salary);
+        return ("Employee: " + this.getFirstName() + " "
+                + this.getLastName() + " on position: " + this.position  +
+                ", with salary: " + this.salary);
     }
+
+
+
+    @Override
+    public int compareTo(Employee otherEmp) {
+        int sal1 = salary;
+        int sal2 = otherEmp.getSalary();
+        return Integer.compare(sal1, sal2);
+    }
+
+
 }
